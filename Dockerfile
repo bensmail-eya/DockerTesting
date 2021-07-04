@@ -1,12 +1,12 @@
 From node:12.22.1-buster
 
-workdir MyApp/
+workdir /MyApp/
 
-copy my-app/package*.json MyApp/
+copy my-app/package*.json /MyApp/
 
 run npm install
 
-copy my-app/. MyApp/
+copy my-app/. /MyApp/
 
 EXPOSE 3000
 
