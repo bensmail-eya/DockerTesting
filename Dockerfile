@@ -1,5 +1,13 @@
 From node:12.22.1-buster
-Workdir ReactApp/
-Copy package*.json ./ReactApp
+
+workdir MyApp/
+
+copy mon-app/package*.json MyApp/
+
 run npm install
-CMD ['RUN','NPM','INSTALL']
+
+copy mon-app/. MyApp/
+
+EXPOSE 4000
+
+CMD ["npm","run","start"]
