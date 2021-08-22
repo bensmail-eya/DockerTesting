@@ -1,13 +1,23 @@
-From node:12.22.1-buster
+#  from les langages/framework qu'ona 
+FROM node:12.22-buster
 
-workdir /MyApp/
 
-copy my-app/package*.json /MyApp/
+WORKDIR /App
+#copier les dependences pour le porjet react ( chaque langue a sa propre dependences)
+COPY package*.json /App/
 
-run npm install
 
-copy my-app/. /MyApp/
+#install dependences
+RUN npm install
+
+
+#copier les fichers sources
+COPY  . /App
+
 
 EXPOSE 3000
+# the same port  that we will use in file.yaml
 
-CMD ["npm","run","start"]
+
+# la commande a excuter pour lancer le projet ( pour créer container)
+CMD  [ "npm", "run","start" ]
